@@ -1,0 +1,47 @@
+@startuml
+
+title DNS lookup and Webpage Query
+
+actor user
+
+participant "DNS resolver" as dns_resolver
+participant "Root Server" as dns_root_server
+participant "TLD Server" as tld_server
+participant "example.com" as dns_server
+participant "server" as Server
+
+autonumber 1
+user ->> dns_resolver :ユーザーが『example.com』をブラウザに入力する。\nクエリはインターネットに送信され\n DNS再帰リソルバーがクエリを受け取る。
+
+autonumber 2
+activate dns_resolver
+dns_resolver ->> dns_root_server: リゾルバーがDNSルートサーバへのクエリを送信。
+activate dns_root_server
+dns_resolver <<-- dns_root_server: ルートサーバーがリゾルバーに応答し、\n DNSルートサーバがTLDDNSのアドレス(.com)を送信する。
+deactivate dns_root_server
+
+autonumber 4
+dns_resolver ->> tld_server: リゾルバーが『.com』へのリクエストを行う。
+activate tld_server
+dns_resolver <<-- tld_server: TLDサーバが応答し、\n ドメインネームサーバー『example.com』のIPアドレスを送信。
+deactivate tld_server
+
+autonumber 6
+dns_resolver ->> dns_server: リゾルバーがドメインネームサーバーへのクエリを送信。
+activate dns_server
+dns_resolver <<-- dns_server: ネームサーバーからリゾルバーに応答し、\n『example.com』のIPアドレスが送信される。
+deactivate dns_server
+
+autonumber 8
+user <<-- dns_resolver: DNSリゾルバーがウェブブラウザに応答し、\n 最初に要求されたドメインのIPアドレスを送信する。
+deactivate dns_resolver
+
+autonumber 9
+user ->> Server: ブラウザは取得したIPアドレスにHTTPリクエストを行う。
+activate Server
+user <<-- Server: リクエストされたIPアドレスを持つサーバーが、要求されたWebページを送信する。
+deactivate Server
+
+
+
+@enduml
