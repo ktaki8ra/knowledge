@@ -9,6 +9,9 @@
 - [dig](./dns/dig.md)
 - [dns-lookup](./dns/base-flow/img/dns_lookup.png)
 
+### メール認証方式
+- [spf](./spf/spf.md)
+
 ### DB
 
 ### Cloud
