@@ -1,6 +1,6 @@
 ### digコマンド
 `dig`コマンド </br>
-`dig (domeain information groper)`は、ネームサーバに対して、ドメイン情報を問い合わせることで、IPアドレスやホスト名の情報を取得する。トラブルシューティングや、DNSのパフォーマンス監視などに便利。([dig](https://en.wikipedia.org/wiki/Dig_(command) ))
+`dig (domain information groper)`は、ネームサーバに対して、ドメイン情報を問い合わせることで、IPアドレスやホスト名の情報を取得する。トラブルシューティングや、DNSのパフォーマンス監視などに便利。([dig](https://en.wikipedia.org/wiki/Dig_(command) ))
 
 
 #### dig A <ドメイン> @<ネームサーバ>
