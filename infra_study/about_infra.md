@@ -7,6 +7,9 @@
 ### DNSサーバー
 - [dig](./dns/dig.md)
 
+### メール認証方式
+- [spf](./spf/spf.md)
+
 ### DB
 
 ### Cloud
