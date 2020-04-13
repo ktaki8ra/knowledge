@@ -7,7 +7,7 @@ actor user
 participant "DNS resolver" as dns_resolver
 participant "Root Server" as dns_root_server
 participant "TLD Server" as tld_server
-participant "example.com" as dns_server
+participant "example.com" as domain_name_server
 participant "server" as Server
 
 autonumber 1
@@ -27,10 +27,10 @@ dns_resolver <<-- tld_server: TLDサーバが応答し、\n ドメインネー�
 deactivate tld_server
 
 autonumber 6
-dns_resolver ->> dns_server: リゾルバーがドメインネームサーバーへのクエリを送信。
-activate dns_server
-dns_resolver <<-- dns_server: ネームサーバーからリゾルバーに応答し、\n『example.com』のIPアドレスが送信される。
-deactivate dns_server
+dns_resolver ->> domain_name_server: リゾルバーがドメインネームサーバーへのクエリを送信。
+activate domain_name_server
+dns_resolver <<-- domain_name_server: ネームサーバーからリゾルバーに応答し、\n『example.com』のIPアドレスが送信される。
+deactivate domain_name_server
 
 autonumber 8
 user <<-- dns_resolver: DNSリゾルバーがウェブブラウザに応答し、\n 最初に要求されたドメインのIPアドレスを送信する。
