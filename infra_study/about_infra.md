@@ -11,6 +11,7 @@
 
 ### メール認証方式
 - [spf](./spf/spf.md)
+- [dkim](./dkim/dkim.md)
 
 ### DB
 
